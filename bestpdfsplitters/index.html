@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best PDF Splitters</title>
+    <link rel="icon" type="image/png" href="assets/pngs/tab-photo/tabphoto.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap');
+
+        :root {
+            --bg: #f3f5f8;
+            --surface: #ffffff;
+            --ink: #1c2837;
+            --muted: #556376;
+            --line: #d9e0ea;
+            --brand: #0f5ec7;
+            --brand-soft: #eaf2ff;
+            --good: #0f9f62;
+            --warn: #b33f5a;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: radial-gradient(circle at 12% 0%, #eaf1ff 0%, var(--bg) 26%), var(--bg);
+            color: var(--ink);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Libre Baskerville', serif;
+            letter-spacing: -0.01em;
+        }
+
+        .site-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-shell {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .article-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: 0 24px 60px rgba(18, 38, 63, 0.06);
+            overflow: hidden;
+        }
+
+        .hero-panel {
+            background:
+                radial-gradient(circle at right 18% top 30%, rgba(15, 94, 199, 0.14) 0%, transparent 34%),
+                linear-gradient(135deg, #f8fbff 0%, #f4f8ff 46%, #edf5ff 100%);
+            border: 1px solid #d5e5ff;
+            border-radius: 16px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 0.7rem 0.5rem;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tool-block {
+            border-top: 1px solid var(--line);
+            padding-top: 1.6rem;
+            margin-top: 1.6rem;
+        }
+
+        .tool-kicker {
+            display: inline-block;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand);
+            border: 1px solid #d5e5ff;
+        }
+
+        .tool-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-brand {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--line);
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .tool-brand-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0.35rem;
+        }
+
+        .sidebar-card {
+            position: sticky;
+            top: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .sidebar-guide {
+            padding: 1.25rem;
+        }
+
+        .sidebar-guide-title {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-guide-list {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #334155;
+            margin-bottom: 1.25rem;
+        }
+
+        .sidebar-guide-list li + li {
+            margin-top: 0.5rem;
+        }
+
+        .sidebar-guide-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-guide-link:hover {
+            color: #1d4ed8;
+        }
+
+        .sidebar-guide-cta-wrap {
+            border-radius: 0.75rem;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sidebar-guide-cta {
+            display: inline-block;
+            background: #1d4ed8;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .sidebar-guide-cta:hover {
+            background: #1e40af;
+        }
+
+        @media (max-width: 1024px) {
+            .article-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-200 selection:text-blue-900">
+
+    <header class="site-header">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <p class="font-extrabold text-slate-900 tracking-tight text-lg">The Best PDF Separators</p>
+            <nav class="text-sm text-slate-600 hidden md:flex items-center gap-5">
+                <a href="#quick-summary" class="hover:text-blue-700">Quick Summary</a>
+                <a href="#comparison" class="hover:text-blue-700">Comparison</a>
+                <a href="#tool-1" class="hover:text-blue-700">Top Picks</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 md:py-10">
+        <div class="article-shell">
+            <article class="article-card p-6 md:p-10">
+                <p class="uppercase tracking-[0.12em] text-xs font-extrabold text-blue-700 mb-3">PDF Software Review</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">The Best PDF Splitters</h1>
+                <p class="text-slate-500 text-sm mb-7">Last Updated: 3/26/2025 | Page updated on May 4, 2026</p>
+
+                <section id="quick-summary" class="mb-10">
+                    <h2 class="text-2xl text-slate-900 font-bold mb-4">Quick Summary</h2>
+                    <ol class="list-decimal pl-6 text-slate-700 space-y-2">
+                        <li><strong>Valotoolbox</strong> - Best overall with the most automated and most flexible splitting workflows, plus a fully ad-free experience on both free and paid plans.</li>
+                        <li><strong>Sejda</strong> - Best browser splitter for quick one-off jobs.</li>
+                        <li><strong>iLovePDF</strong> - Best known for very high user adoption and mainstream cloud convenience.</li>
+                        <li><strong>Smallpdf</strong> - A simple splitter with a polished interface and basic workflows.</li>
+                        <li><strong>PDF24 Tools</strong> - Best fully free toolkit.</li>
+                        <li><strong>PDFgear</strong> - A simple fixed/manual split option with a lightweight online flow.</li>
+                        <li><strong>Adobe Acrobat</strong> - Best enterprise workflow depth.</li>
+                    </ol>
+                </section>
+
+                <section id="comparison" class="mb-10 overflow-x-auto">
+                    <h2 class="text-2xl text-slate-900 font-bold mb-4">At-a-Glance Comparison</h2>
+                    <table class="info-table min-w-[760px] text-sm text-slate-700">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th>Tool</th>
+                                <th>Best For</th>
+                                <th>Core Split Methods</th>
+                                <th>Typical Limitation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Valotoolbox</td><td>Small and large PDF splitting</td><td>Bookmarks, TOC, Section Divider, fixed/variable batches, manual ranges (for example 1-1,3-14)</td><td>No split-by-size mode yet; text split planned</td></tr>
+                            <tr><td>Sejda</td><td>Browser-first work</td><td>Ranges, even/odd, extract all pages</td><td>Free limits on file size/pages</td></tr>
+                            <tr><td>iLovePDF</td><td>High user adoption</td><td>Range (Custom/Fixed/Smart), Pages, Size</td><td>Size mode premium; ad-heavy free experience</td></tr>
+                            <tr><td>Smallpdf</td><td>Simple UI and basic splitting</td><td>Basic split and extract</td><td>Daily free-task caps</td></tr>
+                            <tr><td>PDF24 Tools</td><td>Free no-paywall use</td><td>Page-based split variants</td><td>Older interface feel</td></tr>
+                            <tr><td>PDFgear</td><td>Simple online splitting</td><td>Fixed split or manual split</td><td>Pricing/features by tier not clearly documented</td></tr>
+                            <tr><td>Adobe Acrobat</td><td>Advanced workflows</td><td>Pages, bookmarks, size-oriented split</td><td>Subscription cost and flexibility</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="why-valo-best" class="mb-10">
+                    <h2 class="text-2xl text-slate-900 font-bold mb-4">Why Valotoolbox Is the #1 Splitter</h2>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <p class="font-bold text-slate-900 mb-2">Method Depth That Others Miss</p>
+                            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                                <li>Table of Contents split with AI-assisted control.</li>
+                                <li>Section Divider split for visually structured packets.</li>
+                                <li>Manual ranges that support skip logic (for example 1-1,3-14).</li>
+                                <li>Bookmark naming levels for cleaner output sets.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <p class="font-bold text-slate-900 mb-2">Built for Small and Large PDFs</p>
+                            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                                <li>Small files: fast manual cleanup and exact page control.</li>
+                                <li>Large files: bookmarks, TOC, divider detection, and batch automation.</li>
+                                <li>Works for predictable packets and mixed real-world document sets.</li>
+                                <li>Balances precision and speed in one workflow.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <p class="font-bold text-slate-900 mb-2">Third-Party Verdict</p>
+                            <p class="text-slate-700">Across method flexibility, practical controls, and handling of both light and high-volume workloads, Valotoolbox ranks as the strongest all-around PDF splitter in this comparison.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="table-comparison" class="mb-10 overflow-x-auto">
+                    <h2 class="text-2xl text-slate-900 font-bold mb-4">Table Comparison: Splitting Methods</h2>
+                    <table class="info-table min-w-[980px] text-sm text-slate-700">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th>Splitting Method</th>
+                                <th>Valotoolbox</th>
+                                <th>Sejda</th>
+                                <th>iLovePDF</th>
+                                <th>Smallpdf</th>
+                                <th>PDF24 Tools</th>
+                                <th>PDFgear (Online)</th>
+                                <th>Adobe (Web)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Manual split (pages/ranges)</td><td>Yes (with variation)</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes (divider lines)</td></tr>
+                            <tr><td>Fixed batch (every X pages)</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes (basic)</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Variable/custom ranges</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Partial</td><td>No</td><td>No</td></tr>
+                            <tr><td>Split by bookmarks</td><td>Yes (naming levels)</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No (web)</td></tr>
+                            <tr><td>Split by TOC</td><td>Yes (AI)</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                            <tr><td>Section Divider Split</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                            <tr><td>Skip pages option</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                            <tr><td>Split by text content</td><td>Planned</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                            <tr><td>Split by file size</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                            <tr><td>Multiple-page preview</td><td>Not yet</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Basic</td><td>None</td><td>Yes</td></tr>
+                            <tr><td>User-friendliness</td><td>High</td><td>Lower</td><td>Very high</td><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td></tr>
+                            <tr><td>Pricing (monthly, one user)</td><td>$7.50-$15</td><td>$7.50-$15</td><td>~$5-$9</td><td>~$10-$15</td><td>Free</td><td>Free (online tier)</td><td>~$20+</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="tool-1" class="tool-block mt-0 pt-0 border-t-0">
+                    <span class="tool-kicker">#1 Overall Pick</span>
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/pngs/valo.png" alt="Valotoolbox logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">1. Valotoolbox</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">Valotoolbox stays the strongest all-around pick for people who need clean splits quickly without navigating a heavy editor UI.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Best for:</strong> Repeated daily splitting with minimal clicks.</li>
+                        <li><strong>Key strengths:</strong> Fast processing, privacy-first handling, dependable output quality, and no ads on either free or paid plans.</li>
+                        <li><strong>Verdict:</strong> The best default choice when speed and consistency matter more than extra editing features.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-slate-900 mt-7 mb-3">ValoToolbox PDF Splitter Breakdown</h3>
+                    <p class="text-slate-700 mb-5">ValoToolbox PDF Splitter is designed for both small PDFs and large PDFs. Instead of one basic splitter, it supports Bookmarks, Table of Contents, Section Divider, Batches, and Manual Editor range input workflows.</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="info-table min-w-[860px] text-sm text-slate-700">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th>Method</th>
+                                    <th>What It Does</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Bookmarks</td><td>Splits using built-in PDF bookmarks.</td><td>Organized manuals, specs, reports.</td></tr>
+                                <tr><td>Table of Contents</td><td>Splits from visible TOC entries and hierarchy settings.</td><td>Documents with TOC but weak/no bookmarks.</td></tr>
+                                <tr><td>Section Divider</td><td>Detects repeated divider pages via similarity matching.</td><td>Scanned packets, submittals, mixed large files.</td></tr>
+                                <tr><td>Batches: Fixed Size</td><td>Splits every X pages.</td><td>Equal-length forms and repeated packets.</td></tr>
+                                <tr><td>Batches: Variable Pattern</td><td>Uses repeating pattern like 1,3,2.</td><td>Predictable but uneven record groups.</td></tr>
+                                <tr><td>Manual / Editor</td><td>User-defined ranges such as 1-1,3-14.</td><td>Precision split and intentional page skipping.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 text-sm mb-5">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">1. Bookmarks Method</h3>
+                            <p class="text-slate-700 mb-2">Uses built-in bookmark structure so users do not need to type all page ranges manually.</p>
+                            <p class="text-slate-700"><strong>Use cases:</strong> Construction specs, engineering reports, chaptered manuals.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">2. Table of Contents Method</h3>
+                            <p class="text-slate-700 mb-2">Uses visible TOC text and supports controls like Pages to Skip, Extraction Levels, Naming Levels, and text mode.</p>
+                            <p class="text-slate-700"><strong>Use cases:</strong> TOC-driven reports/manuals where native bookmark data is missing.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">3. Section Divider Method</h3>
+                            <p class="text-slate-700 mb-2">Compares pages against a reference divider page using settings such as DPI and similarity threshold.</p>
+                            <p class="text-slate-700"><strong>Use cases:</strong> Invoices/forms packets with repeated visual separators.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">4. Batches Method</h3>
+                            <p class="text-slate-700 mb-2"><strong>Fixed Size:</strong> split every set number of pages. <strong>Variable Pattern:</strong> repeat sequences such as 1,3,2.</p>
+                            <p class="text-slate-700"><strong>Use cases:</strong> Standardized batch documents and recurring multi-part records.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mb-5">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">5. Manual / Editor Method (Exact Range Control)</h3>
+                        <p class="text-slate-700 mb-2">Manual mode supports non-contiguous ranges, including skip-page patterns like <strong>1-1,3-14</strong>.</p>
+                        <div class="overflow-x-auto mb-2">
+                            <table class="info-table min-w-[720px] text-sm text-slate-700">
+                                <thead>
+                                    <tr class="bg-white">
+                                        <th>Manual Input</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1-5</td><td>Creates an output using pages 1 through 5.</td></tr>
+                                    <tr><td>1-1,3-14</td><td>Includes page 1 and pages 3 through 14, intentionally skipping page 2.</td></tr>
+                                    <tr><td>2-4,8-10</td><td>Combines two non-contiguous ranges into one output set.</td></tr>
+                                    <tr><td>1-3,5-5,9-12</td><td>Includes ranges plus a single page in the middle.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-slate-700">This is useful for removing blank pages, separator sheets, or instruction pages without losing adjacent content.</p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="info-table min-w-[760px] text-sm text-slate-700">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th>PDF Size Scenario</th>
+                                    <th>Best ValoToolbox Methods</th>
+                                    <th>Practical Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Small PDFs</td><td>Manual ranges, fixed batch, selected split files</td><td>Fast page cleanup and precise edits in a few clicks.</td></tr>
+                                <tr><td>Large PDFs</td><td>Bookmarks, TOC, Section Divider, variable/fixed batches</td><td>Scales to hundreds/thousands of pages with structured automation.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-slate-900 mt-7 mb-3">Why Valotoolbox.com Is Better for Real-World Split Accuracy</h3>
+                    <p class="text-slate-700 mb-4">Beyond standard page splitting, Valotoolbox includes practical controls that help teams clean messy files, protect section boundaries, and recover from difficult PDF structures without restarting the workflow.</p>
+
+                    <div class="grid md:grid-cols-3 gap-4 text-sm mb-5">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-slate-900 mb-2">Pages to Skip Controls</h4>
+                            <p class="text-slate-700">Remove blank separators, covers, or inserts before final split output so sections stay clean. Start/end offsets can be stacked, and results can be checked in the Editor view before export.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-slate-900 mb-2">DPI Tuning for Speed vs Detail</h4>
+                            <p class="text-slate-700">Use lower DPI for faster runs on similar pages, then raise DPI only when boundaries rely on fine visual detail, OCR confidence, or similarity matching on detailed divider pages.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-slate-900 mb-2">Dual Extractor Flexibility</h4>
+                            <p class="text-slate-700">If one TOC extraction mode produces weak grouping, switch extractors and re-run. This helps recover hierarchy and section mapping across PDFs that look similar but are encoded differently.</p>
+                        </div>
+                    </div>
+
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>More control than basic splitters:</strong> boundary cleanup, render tuning, and extraction fallback are all in one workflow.</li>
+                        <li><strong>No ad interruptions:</strong> Valotoolbox remains ad-free across both free and paid plans, which keeps high-volume split sessions focused.</li>
+                        <li><strong>Better for mixed document quality:</strong> scanned packets and inconsistent exports are easier to split correctly.</li>
+                        <li><strong>Higher first-pass success:</strong> teams spend less time reprocessing files after bad section breaks.</li>
+                    </ul>
+                </section>
+
+                <section id="tool-2" class="tool-block">
+                    <span class="tool-kicker">Runner-Up</span>
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/sejda.svg" alt="Sejda logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">2. Sejda</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">Sejda is easy to recommend for browser-based splitting and quick extraction tasks.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Key strengths:</strong> Flexible input sources and practical split presets. Lots of options.</li>
+                        <li><strong>Verdict:</strong> Great convenience, but free limits matter for large files.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-slate-900 mt-6 mb-3">Sejda Split Methods</h3>
+                    <p class="text-slate-700 mb-4">Sejda provides one of the broader split menus in a browser workflow. The methods are exposed as separate actions, which gives flexibility but can feel less centralized than a single split dashboard.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="info-table min-w-[820px] text-sm text-slate-700">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th>Method</th>
+                                    <th>What It Does</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Extract Pages</td><td>Creates output from selected pages.</td><td>Pulling exact pages for custom packets.</td></tr>
+                                <tr><td>Split by Pages</td><td>Splits by ranges, each page, or page rules.</td><td>Standard page-range splitting tasks.</td></tr>
+                                <tr><td>Split by Bookmarks</td><td>Creates files from bookmark-defined sections.</td><td>Structured documents with bookmark trees.</td></tr>
+                                <tr><td>Split in Half</td><td>Splits each page itself in half (horizontal or vertical).</td><td>Scans with two logical pages on one sheet.</td></tr>
+                                <tr><td>Split by Size</td><td>Splits into outputs under target file-size limits.</td><td>Email/upload portal size restrictions.</td></tr>
+                                <tr><td>Split by Text</td><td>Splits when target text patterns or markers are found.</td><td>Documents with repeated headings/labels.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 text-sm mb-3">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">What Makes Sejda Strong</h3>
+                            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                                <li>Covers most practical split styles in one platform.</li>
+                                <li>Includes split-by-text and split-by-size, which many tools omit.</li>
+                                <li>Useful visual/page extraction workflows for quick one-off edits.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Limits to Consider</h3>
+                            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                                <li>Method pages are separated, which can slow multi-step workflows.</li>
+                                <li>No dedicated TOC-driven split flow like Valotoolbox.</li>
+                                <li>No section-divider similarity workflow for scanned divider packets.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than Sejda</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>Sejda User Interface is hard to navigate and poorly organized.</li>
+                            <li>Valotoolbox.com keeps advanced splitting workflows in one focused flow, while Sejda spreads methods across separate pages.</li>
+                            <li>Valotoolbox.com adds TOC-driven and section-divider-oriented automation designed for large structured packets.</li>
+                            <li>Valotoolbox.com gives stronger precision controls for manual skip logic (for example, 1-1,3-14) alongside automation.</li>
+                            <li>For mixed small and large PDF workloads, Valotoolbox.com is the more consistent split-first platform.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="tool-3" class="tool-block">
+                    <span class="tool-kicker">Largest User Base</span>
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/ilovepdf.svg" alt="iLovePDF logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">3. iLovePDF</h2>
+                    </div>
+                    <p class="text-slate-700 mb-4">iLovePDF is one of the most widely used PDF platforms and offers mainstream split modes through Range, Pages, and Size (premium) options.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="info-table min-w-[720px] text-sm text-slate-700">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th>Mode</th>
+                                    <th>Sub-method</th>
+                                    <th>What It Does</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Range</td><td>Custom</td><td>Type exact ranges such as 1-3, 8-10, 20-25.</td><td>Known break points (chapters, invoice packets).</td></tr>
+                                <tr><td>Range</td><td>Fixed</td><td>Split every X pages automatically.</td><td>Evenly structured forms or reports.</td></tr>
+                                <tr><td>Range</td><td>Smart</td><td>Category/preset/prompt-guided split flow.</td><td>Structure-based splitting rather than fixed pages.</td></tr>
+                                <tr><td>Pages</td><td>Extract all pages</td><td>Outputs one PDF file per page.</td><td>Single-page archives and page-level handling.</td></tr>
+                                <tr><td>Pages</td><td>Select pages</td><td>Pick non-consecutive pages, with optional merge.</td><td>Building custom mini-PDFs from selected pages.</td></tr>
+                                <tr><td>Size (Premium)</td><td>Max KB/MB</td><td>Splits under a maximum file size, optional compression.</td><td>Email and portal upload limits.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 id="ilovepdf-methods" class="text-xl font-bold text-slate-900 mb-3">iLovePDF vs Valotoolbox Splitter Methods</h3>
+                    <div class="overflow-x-auto mb-2">
+                        <table class="info-table min-w-[760px] text-sm text-slate-700">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th>iLovePDF Method</th>
+                                    <th>Closest Valotoolbox Method</th>
+                                    <th>How They Compare</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Range: Custom</td><td>Manual range split</td><td>Equivalent for deterministic page grouping.</td></tr>
+                                <tr><td>Range: Fixed</td><td>Split every X pages</td><td>Equivalent batch split model.</td></tr>
+                                <tr><td>Range: Smart</td><td>No 1:1 manual equivalent</td><td>Assisted split intent vs direct page control.</td></tr>
+                                <tr><td>Pages: Extract all pages</td><td>Single-page output split</td><td>Equivalent one-page-per-file objective.</td></tr>
+                                <tr><td>Pages: Select pages</td><td>Selected-page extract</td><td>Equivalent for pulling sparse page sets.</td></tr>
+                                <tr><td>Size: Max KB/MB</td><td>No direct page-first equivalent</td><td>Useful for upload caps, less predictable than page-count methods.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-slate-500">Note: Smart split appears as a guided mode with categories, presets, or prompts. Public details can change over time.</p>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than iLovePDF</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>iLovePDF has large user adoption, but Valotoolbox.com provides deeper split automation and structure-aware control.</li>
+                            <li>Valotoolbox.com supports bookmark, TOC, section-divider, fixed batch, variable batch, and manual skip-page workflows in one splitter strategy.</li>
+                            <li>Valotoolbox.com is stronger for high-precision document packets where split accuracy matters more than generic utility breadth.</li>
+                            <li>For teams handling both small edits and large packet segmentation, Valotoolbox.com is the more flexible split engine.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="tool-4" class="tool-block">
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/smallpdfbox.svg" alt="Smallpdf logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">4. Smallpdf</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">Smallpdf is a clean, easy-to-use web splitter focused on straightforward page operations. It is often chosen by casual users because the interface is simple and fast to learn.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Split style:</strong> Basic page-range splitting and selected-page extraction.</li>
+                        <li><strong>Workflow strength:</strong> Good drag-and-drop UX with clear page previews for quick edits.</li>
+                        <li><strong>Best use case:</strong> Light-to-medium tasks where users want quick results and minimal setup.</li>
+                        <li><strong>Main limitation:</strong> Free-tier daily limits can interrupt high-volume document workflows.</li>
+                    </ul>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than Smallpdf</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>Smallpdf is ideal for basic splitting, but Valotoolbox.com supports much more advanced split logic for real production packets.</li>
+                            <li>Valotoolbox.com includes structure-based workflows (TOC, section divider, bookmark levels) beyond simple range extraction.</li>
+                            <li>Valotoolbox.com is better suited to large document sets where repeated automation saves significant time.</li>
+                            <li>For split-focused users who need precision and scalability, Valotoolbox.com is the stronger choice.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="tool-5" class="tool-block">
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/pdf24.svg" alt="PDF24 logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">5. PDF24 Tools</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">PDF24 Tools is a practical free toolkit with both browser-based and desktop workflows. It is useful when cost control matters and users need dependable splitting without paywall friction.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Split style:</strong> Standard page-based split variants with broad utility coverage.</li>
+                        <li><strong>Workflow strength:</strong> No-cost access model and flexible usage across online/offline contexts.</li>
+                        <li><strong>Best use case:</strong> Teams and individuals who need frequent splitting but want to avoid subscriptions.</li>
+                        <li><strong>Main limitation:</strong> Interface is older and less polished than modern premium competitors.</li>
+                    </ul>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than PDF24 Tools</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>PDF24 Tools is strong for free basic workflows, but Valotoolbox.com provides more advanced split intelligence.</li>
+                            <li>Valotoolbox.com is built around structured splitting methods instead of mostly standard page operations.</li>
+                            <li>When speed, precision, and workflow clarity are priorities, Valotoolbox.com delivers a cleaner split-first experience.</li>
+                            <li>For complex packet segmentation, Valotoolbox.com outperforms free utility-style tools.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="tool-6" class="tool-block">
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/pdfgear.svg" alt="PDFgear logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">6. PDFgear</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">PDFgear is a simple splitter intended for straightforward document separation. It focuses on fixed split and manual split controls without heavy workflow complexity.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Split style:</strong> Fixed batch and manual range splitting.</li>
+                        <li><strong>Workflow strength:</strong> Lightweight, low-friction flow for basic PDF handling.</li>
+                        <li><strong>Best use case:</strong> Quick one-off splits where advanced automation is not required.</li>
+                        <li><strong>Main limitation:</strong> Feature depth and pricing/tier detail can be less explicit than larger platforms.</li>
+                    </ul>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than PDFgear</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>PDFgear is useful for simple fixed/manual splits, while Valotoolbox.com supports broader automated split methods.</li>
+                            <li>Valotoolbox.com includes advanced packet-oriented options like TOC and section-divider workflows.</li>
+                            <li>Valotoolbox.com handles both small quick edits and large structured split jobs in one platform.</li>
+                            <li>For users needing precision automation instead of only basic splitting, Valotoolbox.com is clearly stronger.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="tool-7" class="tool-block">
+                    <div class="tool-head">
+                        <div class="tool-brand">
+                            <img src="assets/svgs/adobe-logo.svg" alt="Adobe logo" class="tool-brand-img">
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">7. Adobe Acrobat</h2>
+                    </div>
+                    <p class="text-slate-700 mb-3">Adobe Acrobat is a full enterprise-grade document platform. It is strongest when splitting is only one part of a larger workflow that includes editing, review, security, and controlled sharing.</p>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                        <li><strong>Split style:</strong> Supports advanced split workflows including page and structure-oriented controls.</li>
+                        <li><strong>Workflow strength:</strong> Integrates with broader enterprise document governance and collaboration features.</li>
+                        <li><strong>Best use case:</strong> Organizations that need one platform for split, edit, approval, and compliance tasks.</li>
+                        <li><strong>Main limitation:</strong> Higher cost and complexity compared with simpler split-first tools.</li>
+                    </ul>
+
+                    <div class="border border-blue-100 rounded-xl p-4 bg-blue-50 mt-4">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Why Valotoolbox.com Is Better Than Adobe Acrobat</h3>
+                        <ul class="list-disc pl-6 text-slate-700 space-y-1">
+                            <li>Adobe Acrobat is broad but heavier; Valotoolbox.com is faster and more focused for dedicated splitting workflows.</li>
+                            <li>Valotoolbox.com reduces complexity for teams that need high-quality splitting without full-suite overhead.</li>
+                            <li>For split-first operations, Valotoolbox.com delivers better speed-to-result and simpler execution.</li>
+                            <li>When splitting is the core task, Valotoolbox.com is the more efficient and practical platform.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="tool-block">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Conclusion</h2>
+                    <p class="text-slate-700 mb-5">If your primary goal is fast, reliable splitting with minimal friction, Valotoolbox remains the strongest first choice. If you specifically need a wider split menu, iLovePDF is the most method-diverse option today, especially with Range, Pages, and size-based premium splitting in one interface.</p>
+                    <a href="https://valotoolbox.com" target="_blank" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full transition">Use Valotoolbox</a>
+                </section>
+            </article>
+
+            <aside class="sidebar-card sidebar-guide">
+                <h3 class="sidebar-guide-title">In This Guide</h3>
+                <ul class="sidebar-guide-list">
+                    <li><a href="#quick-summary" class="sidebar-guide-link">Quick Summary</a></li>
+                    <li><a href="#comparison" class="sidebar-guide-link">At-a-Glance Comparison</a></li>
+                    <li><a href="#why-valo-best" class="sidebar-guide-link">Why Valotoolbox Is the #1 Splitter</a></li>
+                    <li><a href="#table-comparison" class="sidebar-guide-link">Table Comparison: Splitting Methods</a></li>
+                    <li><a href="#tool-1" class="sidebar-guide-link">1. Valotoolbox</a></li>
+                    <li><a href="#tool-2" class="sidebar-guide-link">2. Sejda</a></li>
+                    <li><a href="#tool-3" class="sidebar-guide-link">3. iLovePDF</a></li>
+                    <li><a href="#tool-4" class="sidebar-guide-link">4. Smallpdf</a></li>
+                    <li><a href="#tool-5" class="sidebar-guide-link">5. PDF24 Tools</a></li>
+                    <li><a href="#tool-6" class="sidebar-guide-link">6. PDFgear</a></li>
+                    <li><a href="#tool-7" class="sidebar-guide-link">7. Adobe Acrobat</a></li>
+                </ul>
+                <div class="sidebar-guide-cta-wrap">
+                    <a href="https://valotoolbox.com" target="_blank" class="sidebar-guide-cta">Use Valotoolbox</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-4 pb-10 pt-2 text-slate-500 text-sm">
+        <div class="border-t border-slate-300 pt-6">
+            <p>&copy; 2026 Valotoolbox. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
