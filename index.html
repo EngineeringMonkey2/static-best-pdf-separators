@@ -43,11 +43,13 @@
         .article-shell {
             display: grid;
             grid-template-columns: minmax(0, 1fr) 280px;
+            grid-template-areas: "article sidebar";
             gap: 1.5rem;
             align-items: start;
         }
 
         .article-card {
+            grid-area: article;
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 22px;
@@ -125,6 +127,7 @@
         }
 
         .sidebar-card {
+            grid-area: sidebar;
             position: sticky;
             top: 1rem;
             background: var(--surface);
@@ -192,6 +195,9 @@
         @media (max-width: 1024px) {
             .article-shell {
                 grid-template-columns: 1fr;
+                grid-template-areas:
+                    "sidebar"
+                    "article";
             }
 
             .sidebar-card {
